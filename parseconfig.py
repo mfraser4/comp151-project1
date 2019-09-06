@@ -1,3 +1,9 @@
+"""
+Mark Fraser
+m_fraser3@u.pacific.edu
+COMP 151:  Project 1
+"""
+
 from configparser import (
     ConfigParser
 )
@@ -9,6 +15,11 @@ from re import (
 from sys import (
     exit
 )
+
+
+# global constants
+CONFIG_FILE = 'config.ini'  # configuration file path
+NUM_COLUMNS = 3             # number of columns in financial data file
 
 
 def parseArguments():
@@ -24,9 +35,9 @@ def parseArguments():
     initial_mutation_rate = parseMutationRate(config_object)
     decrease_rate = parseMutationDecreaseRate(config_object)
 
-    return (financial_data, num_chromosomes, selection_algorithm,
-            selection_percent, crossover_algorithm, initial_mutation_rate,
-            decrease_rate)
+    return (financial_data, num_chromosomes, num_generations,
+            selection_algorithm, selection_percent, crossover_algorithm,
+            initial_mutation_rate, decrease_rate)
 
 
 def parseFinancialData(config_object):
