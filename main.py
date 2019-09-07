@@ -27,17 +27,23 @@ __license__ = "N/A"
 
 def main():
     finances, num_chromosomes, num_generations, selection_algorithm, \
-    selection_percent, init_mutation, crossover, decrease_rate = \
+    selection_percent, crossover_algorithm, init_mutation, decrease_rate = \
                                                                 parseArguments()
 
-    runGeneticAlgorithm(finances,
-                        num_chromosomes,
-                        num_generations,
-                        selection_algorithm,
-                        selection_percent,
-                        init_mutation,
-                        crossover,
-                        decrease_rate)
+    chromosome, fitness = runGeneticAlgorithm(finances,
+                                                num_chromosomes,
+                                                num_generations,
+                                                selection_algorithm,
+                                                selection_percent,
+                                                init_mutation,
+                                                crossover_algorithm,
+                                                decrease_rate)
+
+    # print best chromosome settings and fitness score
+    print('Final result:\n' +
+            '-------------')
+    chromosome.print()
+    print('Fitness score:  ' + str(fitness))
 
 
 if __name__ == "__main__":

@@ -8,6 +8,15 @@ from configparser import (
     ConfigParser
 )
 
+from constants import (
+    CONFIG_FILE,
+    ELITIST,
+    KPOINT,
+    NUM_COLUMNS,
+    TOURNAMENT,
+    UNIFORM
+)
+
 from re import (
     split
 )
@@ -15,11 +24,6 @@ from re import (
 from sys import (
     exit
 )
-
-
-# global constants
-CONFIG_FILE = 'config.ini'  # configuration file path
-NUM_COLUMNS = 3             # number of columns in financial data file
 
 
 def parseArguments():
@@ -77,7 +81,7 @@ def parseNumGenerations(config_object):
 
     num_generations = int(num_generations)
     if num_generations <= 0:
-        exit('invalid number of generations (must be >0): ' + num_generations)
+        exit('invalid number of generations (must be > 0): ' + num_generations)
 
     return num_generations
 
@@ -86,8 +90,8 @@ def parseSelectionAlgorithm(config_object):
     selection_algorithm = getConfigFieldValue(config_object, 'selectionalg',
                                                 'ALGORITHM', fallback='DEFAULT')
 
-    if selection_algorithm != 'elitist' and \
-                                        selection_algorithm != 'tournament':
+    if selection_algorithm != ELITIST and \
+                                        selection_algorithm != TOURNAMENT:
         exit('invalid selection algorithm provided (not \'elitist\' or' +
             '\'tournament\'): ' + selection_algorithm)
 
@@ -111,8 +115,8 @@ def parseCrossoverAlgorithm(config_object):
     crossover_algorithm = getConfigFieldValue(config_object, 'crossoveralg',
                                                 'ALGORITHM', fallback='DEFAULT')
 
-    if crossover_algorithm != 'uniform' and \
-                                        crossover_algorithm != 'kpoint':
+    if crossover_algorithm != UNIFORM and \
+                                        crossover_algorithm != KPOINT:
         exit('invalid crossover algorithm provided (not \'uniform\' or' +
             '\'kpoint\'): ' + crossover_algorithm)
 
