@@ -80,6 +80,7 @@ def runGeneticAlgorithm(finances, num_chromosomes, num_generations,
                                                     num_chromosomes,
                                                     mutation_rate)
 
+
             mutation_rate = mutation_rate * (1 - decrease_rate)
 
         curr_generation = curr_generation + 1

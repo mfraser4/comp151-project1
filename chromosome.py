@@ -5,6 +5,8 @@ COMP 151:  Project 1
 """
 
 from constants import (
+    BUY,
+    SHORT,
     VALID_PERCENTAGE
 )
 
@@ -47,7 +49,7 @@ class Chromosome(object):
             ub_day2 = tmp
 
         # enforce recommendation is valid
-        if r != 0 and r != 1:
+        if r != SHORT and r != BUY:
             exit("invalid recommendation provided: " + str(r))
 
         self.data = [lb_day1, ub_day1, lb_day2, ub_day2, r]

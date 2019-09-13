@@ -21,8 +21,6 @@ from sys import (
 
 
 __author__ = "Mark Fraser"
-__version__ = "0.1.0"
-__license__ = "N/A"
 
 
 def main():

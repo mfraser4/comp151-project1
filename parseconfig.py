@@ -104,8 +104,8 @@ def parseSelectionPercent(config_object):
 
     selection_percent = float(selection_percent)
 
-    if selection_percent <= 0 or 1 <= selection_percent:
-        exit('invalid selection percentage (not between 0 and 1): ' +
+    if selection_percent <= 0 or 1 < selection_percent:
+        exit('invalid selection percentage (must be > 0 and <= 1): ' +
             str(selection_percent))
 
     return selection_percent
@@ -129,8 +129,8 @@ def parseMutationRate(config_object):
 
     mutation_rate = float(mutation_rate)
 
-    if mutation_rate <= 0 or 1 <= mutation_rate:
-        exit('invalid intial mutation rate (not between 0 and 1): ' +
+    if mutation_rate < 0 or 1 < mutation_rate:
+        exit('invalid intial mutation rate (must be between 0 and 1): ' +
             str(mutation_rate))
 
     return mutation_rate
@@ -142,8 +142,8 @@ def parseMutationDecreaseRate(config_object):
 
     decrease_rate = float(decrease_rate)
 
-    if decrease_rate <= 0 or 1 <= decrease_rate:
-        exit('invalid mutation decrease rate (not between 0 and 1): ' +
+    if decrease_rate < 0 or 1 <= decrease_rate:
+        exit('invalid mutation decrease rate (must be >= 0 and < 1): ' +
             str(decrease_rate))
 
     return decrease_rate

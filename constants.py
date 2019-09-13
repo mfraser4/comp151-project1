@@ -4,6 +4,8 @@ m_fraser3@u.pacific.edu
 COMP 151:  Project 1
 
 Constants shared across multiple files and/or global to module
+
+DO NOT EDIT
 """
 
 # config file
