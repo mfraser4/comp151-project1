@@ -53,14 +53,14 @@ personal configurations.)
 
 This is the file path to the financial data relative to the root directory.  For
 this project, financial data files have been sorted into `financial_data/`.  If
-the data does not conform to the specifications in the Project 1 GAs PDF file,
-an error will be thrown with a corresponding error message.
+the data does not conform to the specifications in the Project 1 GAs PDF file
+or cannot be opened, an error will be thrown with a corresponding error message.
 
 ### numchromosomes
 
-The number of chromosomes in each generation.  This number must be greater than
-0.  If the provided argument cannot be converted to an integer, an error will be
-thrown.
+The number of chromosomes in each generation.  This number must be greater
+than 0.  If the provided argument cannot be converted to an integer, an error
+will be thrown.
 
 ### numgenerations
 
@@ -105,7 +105,8 @@ kpoint
 ### initmutation
 
 The initial mutation rate.  This number must be in the range [0,1].  A value of
-0 indicates no mutation, and a value of 1 indicates every chromosome mutates.
+0 indicates no mutation, and a value of 1 indicates every chromosome gene
+mutates.
 
 ### ratedecrease
 
@@ -187,9 +188,16 @@ of the debug files and a short description of what the algorithm should output.
 | debug_short_positive_stock.txt | The ideal chromosome would short all stock in the range [1.7, 3.0] on day one and [0.05, 2.20] for a profit of $14.90 |
 | debug_short_stock.txt | The ideal chromosome would short all stock in the range [-1.0, 0.05] on day one and [-2.0, 0.5] for a profit of $14.60 |
 
+(NOTE: Because the ranges of values for the optimal chromosome are relatively
+large, it is recommended to generate more chromosomes and/or have a higher
+number of generations to see the see the program differentiate the
+optimal solution.)
+
 ## Test Files
 
 The file `test_fitness_calculator.txt` has been written as a conveniently small
 file with simple integers for easy calculation of the best chromosome's fitness
 score after running for one generation (following the instructions from the
-rubric).
+rubric).  There is no guarantee that the best chromosome will always be optimal,
+depending on the config settings, but the fitness should be conveniently
+determinable.

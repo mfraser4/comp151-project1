@@ -17,6 +17,7 @@ from constants import (
     MATCH_NOT_FOUND,
     MILESTONE_GENERATION,
     PROFIT,
+    SHORT,
     TOURNAMENT,
     UNIFORM
 )
@@ -98,7 +99,7 @@ def generateChromosomePopulation(num):
 
 def generateRandomChromosome():
     mu = 0
-    sigma = 1.5
+    sigma = 1.15
 
     # generate random percentage ranges and a random recommendation
     lb1 = gauss(mu, sigma)
@@ -261,17 +262,24 @@ def runKpointAlgorithm(sample_chromosomes, crossover_algorithm,
 
 def performMutations(next_gen_chromosomes, mutation_rate):
     mu = 0
-    sigma = 1.5
+    sigma = 1.15
     chromosomes = []
 
     for chromosome in next_gen_chromosomes:
-        # TODO this breaks encapsulation, but is more concise
+        # this breaks encapsulation, but is more concise
         data = chromosome.data
         gene_range = len(data) - 1  # confines range to percentage bound values
         for i in range(gene_range):
-            # check whether to mutate chromosome
+            # check whether to mutate chromosome bound
             if random() <= mutation_rate:
                 data[i] = gauss(mu, sigma)
+
+        # check for mutation of recommendation
+        if random() <= mutation_rate:
+            if data[4] == BUY:
+                data[4] == SHORT
+            else:
+                data[4] == BUY
 
         # create chromosome with (potentially new) data
         chromosomes.append(Chromosome(data[0], data[1], data[2], data[3],
