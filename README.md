@@ -139,7 +139,16 @@ ratedecrease = 0.05
 Result:
 
 ```
-5145.41
+Final result:
+-------------
+<chromosome.Chromosome object at 0x000001F214454358>:
+    LB1:  -0.7787908832663907
+    UB1:  1.0452008967177908
+    LB2:  -2.2675046466449835
+    UB2:  1.526263374779349
+    REC:  0
+
+Fitness score:  5096.689999999963
 ```
 
 The high mutation rate helps get the program out of a local optimum that was
@@ -168,7 +177,16 @@ ratedecrease = 0.05
 Result:
 
 ```
-455.51
+Final result:
+-------------
+<chromosome.Chromosome object at 0x000001A3DC7036D8>:
+    LB1:  -2.548527741289599
+    UB1:  1.273637863754671
+    LB2:  -2.640861444357888
+    UB2:  0.2013874681246934
+    REC:  0
+
+Fitness score:  450.65999999999923
 ```
 
 # Testing
